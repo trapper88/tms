@@ -1,19 +1,23 @@
 package com.company;
 
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Lesson3 {
 
     public static void main(String[] args) {
-        task1();
-        task2();
-        task3();
-        task4();
-        task5();
-        task6();
-        task7();
+//        task1();
+//        task2();
+//        task3();
+//        task4();
+//        task5();
+//        task6();
+//        task7();
+//        task8();
+//        task9();
+        task10();
     }
 
     public static void task1() {
@@ -179,6 +183,102 @@ public class Lesson3 {
             }
         }
         System.out.println(Arrays.toString(array));
+
+    }
+
+    public static void task8() {
+
+        int[] arr1 = new int[10];
+        int[] arr2 = new int[10];
+        double[] sum = new double[10];
+        Random x = new Random();
+        Random y = new Random();
+
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = x.nextInt(9);
+            arr2[i] = y.nextInt(9);
+            sum[i] = (double) arr1[i] / arr2[i];
+        }
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2));
+        System.out.println(Arrays.toString(sum));
+        int z = 0;
+        for (int i = 0; i < sum.length; i++) {
+            if (sum[i] % 1 == 0 && sum[i] != 0) {
+                z++;
+            }
+        }
+        System.out.println("Количество целых " + z);
+    }
+
+    public static void task9() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите длину массива");
+        int y = sc.nextInt();
+        if (y <= 0) {
+            System.out.println("Incorrect number");
+            return;
+        }
+        Random r = new Random();
+
+        int[] arr = new int[y];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = r.nextInt(15);
+        }
+        System.out.println(Arrays.toString(arr));
+        int sum1 = 0;
+        int sum2 = 0;
+        double p = Math.abs(arr.length / 2);
+
+        for (int i = 0; i < p; i++) {
+            sum1 += arr[i];
+        }
+        for (int i = arr.length - 1; i > p; i--) {
+            sum2 += arr[i];
+        }
+        if (sum1 > sum2) {
+            System.out.println("Left bigger");
+            if (sum1 < sum2) {
+                System.out.println("Right bigger");
+            }
+        } else {
+            System.out.println("Equals");
+
+
+        }
+    }
+
+    public static void task10() {
+        System.out.println("Enter number > 3");
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        if (x <= 3) {
+            System.out.println("Wrong number");
+            return;
+        }
+        int[] arr = new int[x];
+        int pol = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            Random r = new Random();
+            arr[i] = r.nextInt(x);
+            if (arr[i] % 2 == 0 && arr[i] != 0) {
+                pol++;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+
+        int arr2[] = new int[pol];
+        int u = 0;
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] % 2 == 0 && arr[j] != 0) {
+                arr2[u] = arr[j];
+                u++;
+            }
+        }
+        System.out.println(Arrays.toString(arr2));
 
     }
 }
