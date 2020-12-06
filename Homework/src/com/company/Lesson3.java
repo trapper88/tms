@@ -17,7 +17,13 @@ public class Lesson3 {
 //        task7();
 //        task8();
 //        task9();
-        task10();
+//        task10();
+//        multiarray1();
+//        multiarray2();
+//        multiarray3();
+//        multiarray4();
+        multiarray5();
+
     }
 
     public static void task1() {
@@ -230,7 +236,7 @@ public class Lesson3 {
         System.out.println(Arrays.toString(arr));
         int sum1 = 0;
         int sum2 = 0;
-        double p = Math.abs(arr.length / 2);
+        double p = Math.floor(arr.length / 2);
 
         for (int i = 0; i < p; i++) {
             sum1 += arr[i];
@@ -281,7 +287,157 @@ public class Lesson3 {
         System.out.println(Arrays.toString(arr2));
 
     }
+
+    public static void multiarray1() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите 2 числа через Enter - размеры матрицы");
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        if (x != y) {
+            System.out.println("Числа не равны");
+            multiarray1();
+        }
+
+        int[][] marr = new int[x][y];
+        Random r = new Random();
+        int z = 0;
+        for (int i = 0; i < marr.length; i++) {
+            for (int j = 0; j < marr[i].length; j++) {
+                marr[i][j] = r.nextInt(50);
+                if (i == j && marr[i][j] % 2 == 0) {
+                    z += marr[i][j];
+                }
+            }
+        }
+        System.out.println(Arrays.deepToString(marr));
+        System.out.println(z);
+    }
+
+    public static void multiarray2() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите 2 числа через Enter - размеры матрицы");
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        if (x != y) {
+            System.out.println("Числа не равны");
+            multiarray2();
+        }
+
+        int[][] marr = new int[x][y];
+        Random r = new Random();
+
+        for (int i = 0; i < marr.length; i++) {
+            for (int j = 0; j < marr[i].length; j++) {
+                marr[i][j] = r.nextInt(50);
+            }
+        }
+        System.out.println(Arrays.deepToString(marr));
+        for (int i = 0; i < marr.length; i++) {
+            for (int j = 0; j <= i; j++) {
+                if (marr[i][j] % 2 != 0) {
+                    System.out.print(marr[i][j] + " ");
+                }
+            }
+        }
+
+    }
+
+    public static void multiarray3() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите 2 одинаковых числа через Enter - размеры матрицы");
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        if (x != y) {
+            System.out.println("Числа не равны");
+            multiarray3();
+        }
+        int[][] marr = new int[x][y];
+        Random r = new Random();
+        for (int i = 0; i < marr.length; i++) {
+            for (int j = 0; j < marr[i].length; j++) {
+                marr[i][j] = r.nextInt(50);
+            }
+        }
+        System.out.println(Arrays.deepToString(marr));
+        int w = 1;
+        int e = 1;
+        for (int i = 0; i < marr.length; i++) {
+            w *= marr[i][i];
+            e *= marr[i][marr.length - 1 - i];
+        }
+        System.out.println(w + " " + e);
+        if (w > e) {
+            System.out.println("На главной диагонали произведение больше");
+        } else {
+            System.out.println("Произведение на побочной диагонали больше или они равны");
+        }
+
+    }
+
+    public static void multiarray4() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите 2 одинаковых числа через Enter - размеры матрицы");
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        if (x != y) {
+            System.out.println("Числа не равны");
+            multiarray4();
+        }
+        int[][] marr = new int[x][y];
+        Random r = new Random();
+        for (int i = 0; i < marr.length; i++) {
+            for (int j = 0; j < marr[i].length; j++) {
+                marr[i][j] = r.nextInt(50);
+            }
+        }
+        System.out.println(Arrays.deepToString(marr));
+        int z = 0;
+        for (int i = 0; i < marr.length; i++) {
+            for (int j = 0; j < marr.length - i - 1; j++) {
+                if (marr[i][j] % 2 == 0) {
+                    z += marr[i][j];
+                }
+            }
+        }
+        System.out.println(z);
+    }
+
+    public static void multiarray5() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите 2 одинаковых числа через Enter - размеры матрицы");
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        if (x != y) {
+            System.out.println("Числа не равны");
+            multiarray5();
+        }
+        int[][] marr = new int[x][y];
+        Random r = new Random();
+        for (int i = 0; i < marr.length; i++) {
+            for (int j = 0; j < marr[i].length; j++) {
+                marr[i][j] = r.nextInt(50);
+            }
+        }
+        System.out.println(Arrays.deepToString(marr));
+
+        for (int i = 0; i < marr.length; i++) {
+            for (int j = i + 1; j < marr.length; j++) {
+                int temp = marr[i][j];
+                marr[i][j] = marr[j][i];
+                marr[j][i] = temp;
+            }
+        }
+        System.out.println(Arrays.deepToString(marr));
+
+    }
+
+
 }
+
+
+
+
+
 
 
 
