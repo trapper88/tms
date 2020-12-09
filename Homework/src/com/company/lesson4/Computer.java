@@ -40,7 +40,35 @@ public class Computer {
                 recourse--;
                 System.out.println("Комп включился. Остаточный ресурс " + recourse);
             }
+        }
+    }
 
+    void turnOff() {
+        Random r = new Random();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Для вылючения введите 1 либо 0");
+        int z = sc.nextInt();
+        int x = r.nextInt(2);
+
+        if (z != x) {
+            recourse--;
+            System.out.println("Комп сгорел. Остаточный ресурс " + recourse);
+            if (recourse <= 0) {
+                System.out.println("Компьютер больше не может включиться");
+                System.exit(0);
+            } else {
+                turnOn();
+            }
+        } else {
+
+            recourse--;
+            System.out.println("Комп выключился. Остаточный ресурс " + recourse);
+            if (recourse <= 0) {
+                System.out.println("Компьютер больше не может включиться");
+                System.exit(0);
+            } else {
+                turnOn();
+            }
         }
     }
 

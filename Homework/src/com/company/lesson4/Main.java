@@ -6,5 +6,6 @@ public class Main {
         Computer comp = new Computer();
         comp.description();
         comp.turnOn();
+        comp.turnOff();
     }
 }
